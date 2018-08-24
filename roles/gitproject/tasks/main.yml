@@ -1,0 +1,12 @@
+- name: clone ansible demo web project
+  become: true
+  git:
+    repo: https://mleukering%40gmail.com:{{ githubpassword | urlencode }}@github.com/mleukering/ansibledemoweb.git
+    dest: /var/www/html
+    version: master
+
+- name: set file ownership for webroot recursively
+  become: true
+  command: chown -R www-data:www-data /var/www/html
+  args:
+    warn: false

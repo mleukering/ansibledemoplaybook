@@ -1,0 +1,5 @@
+- name: Change our config file from default to use our server's IP
+  replace:
+    path: /var/www/html/config.php
+    regexp: 'DEFAULTIP'
+    replace: '{{ inventory_hostname }}'

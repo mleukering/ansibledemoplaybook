@@ -1,0 +1,12 @@
+- name: Install apache2 web server
+  become: true
+  apt: pkg={{ item }} state=present update_cache=true
+  with_items:
+  - apache2
+
+- name: Remove default apache2 index.html file
+  become: yes
+  ignore_errors: yes
+  file:
+    path: /var/www/html/index.html
+    state: absent

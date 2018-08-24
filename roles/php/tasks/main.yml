@@ -1,0 +1,5 @@
+- name: Install PHP7.2
+  become: true
+  apt: pkg={{ item }} state=present update_cache=true
+  with_items:
+  - php7.2

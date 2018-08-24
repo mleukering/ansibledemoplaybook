@@ -1,0 +1,14 @@
+---
+- hosts: all
+  vars_prompt: 
+    - name: "githubpassword" 
+      prompt: "Enter your github password" 
+      private: yes
+  become: true
+  gather_facts: false
+  roles:
+    - python
+    - apache2
+    - php
+    - gitproject
+    - config
